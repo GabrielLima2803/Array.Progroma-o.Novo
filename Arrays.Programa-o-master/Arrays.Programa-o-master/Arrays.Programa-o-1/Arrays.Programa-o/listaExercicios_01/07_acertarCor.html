@@ -10,16 +10,26 @@
     //NÃO FOI DESSA VEZ... TENTE NOVAMENTE!
 
     //ENTRADA
-    let   nomeCores = ["azul", "amarelo", "verde", "branco", "preto", "marrom", "cinza"];
-    const corInformada = parseInt(prompt("Informe uma cor entre 0-azul, 1-amarelo, 2-verde, 3-branco, 4-preto, 5-marrom, 6-cinza"));
+    const nomeCores = ["azul", "amarelo", "verde", "branco", "preto", "marrom", "cinza"];
+    const corInformada = prompt("Informe uma cor entre azul, amarelo, verde, branco, preto, marrom, cinza").trim().toLowerCase();
     const numeroAleatorio = Math.floor(Math.random() * 7);
     //PROCESSAMENTO
 
-    if (corInformada === numeroAleatorio ) {
-        document.write(`PARABÉNS! VOCÊ ESTÁ COM SORTE!`)
+    const posicaoCor = nomeCores.indexOf(corInformada);
+
+    if (posicaoCor >= 0) {
+     const Sorteada = Math.floor(Math.random() * 7); 
+
+        if (posicaoCor === Sorteada) {
+            document.write(`PARABÉNS! VOCÊ ESTÁ COM SORTE NA COR ${nomeCores[Sorteada]}!`);
+        }
+        else{
+            document.write(`NÃO FOI DESSA VEZ... TENTE NOVAMENTE!`)
+        }
     }
+
     else{
-        document.write(`NÃO FOI DESSA VEZ... TENTE NOVAMENTE!`)
+        document.write(`Cor inválida`)
     }
 
     //Não achei outro jeito alem de usar número, ire esperar a correção desta atividade.
